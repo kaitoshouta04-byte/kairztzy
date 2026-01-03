@@ -10,12 +10,32 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background: #1e1e1e;
       color: #fff;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* BACKGROUND BLUR */
+    .bg-blur {
+      position: fixed;
+      inset: 0;
+      background-image: url("https://ar-hosting.pages.dev/1767417726823.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: blur(20px);
+      transform: scale(1.2);
+      z-index: -2;
+    }
+
+    /* OVERLAY GELAP AGAR TEKS JELAS */
+    .bg-blur::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
     }
 
     .container {
@@ -23,6 +43,8 @@
       max-width: 360px;
       padding: 20px;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     .profile-img {
@@ -32,6 +54,7 @@
       object-fit: cover;
       margin-bottom: 20px;
       border: 3px solid #fff;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
     }
 
     .link {
@@ -49,7 +72,7 @@
 
     .link:hover {
       transform: scale(1.03);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
     }
 
     .icon {
@@ -61,9 +84,13 @@
 </head>
 
 <body>
+
+  <!-- BACKGROUND BURAM -->
+  <div class="bg-blur"></div>
+
+  <!-- KONTEN UTAMA -->
   <div class="container">
 
-    <!-- GANTI src DENGAN FOTO PROFIL ANDA -->
     <img src="https://ar-hosting.pages.dev/1767415282910.jpg" alt="Profile" class="profile-img">
 
     <a class="link" href="https://tiktok.com/@kairztzzy" target="_blank">
@@ -73,7 +100,7 @@
 
     <a class="link" href="https://instagram.com/KairzAnomali969" target="_blank">
       <img class="icon" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-      instagram
+      Instagram
     </a>
 
     <a class="link" href="https://t.me/KaiShin05" target="_blank">
@@ -83,9 +110,10 @@
 
     <a class="link" href="#" target="_blank">
       <img class="icon" src="https://ar-hosting.pages.dev/1767415153162.jpg">
-      Pintrest
+      Pinterest
     </a>
 
   </div>
+
 </body>
 </html>
