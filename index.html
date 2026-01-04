@@ -1,119 +1,256 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kai Shin - Social Links</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kai Shin | My Socials</title>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
+<style>
+:root{
+  --bg:#f1f4f8;
+  --card:#ffffff;
+  --text:#1e1e1e;
+  --sub:#6b7280;
 
-    /* BACKGROUND BLUR */
-    .bg-blur {
-      position: fixed;
-      inset: 0;
-      background-image: url("https://ar-hosting.pages.dev/1767417726823.jpg");
-      background-size: cover;
-      background-position: center;
-      filter: blur(20px);
-      transform: scale(1.2);
-      z-index: -2;
-    }
+  --blue-light:#7cc3f2;
+  --blue-dark:#0f3c6e;
+  --gray:#9aa0a6;
+  --blue-wa:#5fb3e4;
+  --blue-pin:#0a3d6f;
+  --black:#111827;
+}
 
-    /* OVERLAY GELAP AGAR TEKS JELAS */
-    .bg-blur::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.4);
-    }
+/* DARK MODE */
+body.dark{
+  --bg:#0f172a;
+  --card:#1e293b;
+  --text:#f8fafc;
+  --sub:#cbd5f5;
+}
 
-    .container {
-      width: 100%;
-      max-width: 360px;
-      padding: 20px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    .profile-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 20px;
-      object-fit: cover;
-      margin-bottom: 20px;
-      border: 3px solid #fff;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-    }
+body{
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:var(--bg);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  color:var(--text);
+  transition:.3s ease;
+}
 
-    .link {
-      display: flex;
-      align-items: center;
-      background: #fff;
-      color: #000;
-      text-decoration: none;
-      padding: 14px;
-      border-radius: 14px;
-      margin-bottom: 15px;
-      font-weight: bold;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+/* CARD */
+.wrapper{
+  width:100%;
+  max-width:1000px;
+  background:var(--card);
+  border-radius:30px;
+  padding:34px 32px 36px;
+  box-shadow:0 30px 70px rgba(0,0,0,.15);
+  position:relative;
+  transition:.3s ease;
+}
 
-    .link:hover {
-      transform: scale(1.03);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-    }
+/* DARK MODE BUTTON */
+.toggle{
+  position:absolute;
+  top:24px;
+  right:24px;
+  background:var(--bg);
+  border-radius:20px;
+  padding:8px 14px;
+  cursor:pointer;
+  font-size:14px;
+  border:none;
+  color:var(--text);
+}
 
-    .icon {
-      width: 32px;
-      height: 32px;
-      margin-right: 15px;
-    }
-  </style>
+/* TITLE */
+.badge{
+  background:linear-gradient(135deg,#7cc3f2,#4fa3e3);
+  color:#fff;
+  display:inline-block;
+  padding:14px 30px;
+  border-radius:18px;
+  font-weight:700;
+  letter-spacing:1px;
+  margin-bottom:30px;
+}
+
+/* PROFILE */
+.profile{
+  display:flex;
+  align-items:center;
+  gap:26px;
+  margin-bottom:40px;
+  flex-wrap:wrap;
+}
+
+.avatar-ring{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#4fa3e3,#0f3c6e);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.avatar{
+  width:96px;
+  height:96px;
+  border-radius:50%;
+  object-fit:cover;
+  background:#fff;
+}
+
+.profile-text h1{
+  font-size:26px;
+  margin-bottom:8px;
+}
+
+.profile-text p{
+  font-size:15px;
+  color:var(--sub);
+  max-width:420px;
+  line-height:1.6;
+}
+
+/* SOCIAL GRID */
+.socials{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:20px;
+}
+
+.social{
+  border-radius:20px;
+  padding:22px 14px;
+  text-align:center;
+  text-decoration:none;
+  color:#fff;
+  transition:.25s ease;
+}
+
+.social:hover{
+  transform:translateY(-8px);
+  box-shadow:0 18px 40px rgba(0,0,0,.25);
+}
+
+.social img{
+  width:42px;
+  height:42px;
+  margin-bottom:14px;
+}
+
+.social span{
+  display:block;
+  font-size:13px;
+  font-weight:600;
+}
+
+/* COLORS */
+.tiktok{background:var(--blue-light);}
+.instagram{background:var(--blue-dark);}
+.telegram{background:var(--gray);}
+.whatsapp{background:var(--blue-wa);}
+.pinterest{background:var(--blue-pin);}
+.threads{background:var(--black);}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  margin-top:36px;
+  font-size:13px;
+  color:var(--sub);
+}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .socials{grid-template-columns:repeat(3,1fr);}
+}
+
+@media(max-width:600px){
+  .profile{flex-direction:column;text-align:center;}
+  .socials{grid-template-columns:repeat(2,1fr);}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- BACKGROUND BURAM -->
-  <div class="bg-blur"></div>
+<div class="wrapper">
 
-  <!-- KONTEN UTAMA -->
-  <div class="container">
+  <button class="toggle" onclick="toggleMode()">🌙 / ☀️</button>
 
-    <img src="https://ar-hosting.pages.dev/1767415282910.jpg" alt="Profile" class="profile-img">
+  <div class="badge">MY SOCIALS</div>
 
-    <a class="link" href="https://tiktok.com/@kairztzzy" target="_blank">
-      <img class="icon" src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
-      TikTok
-    </a>
-
-    <a class="link" href="https://instagram.com/KairzAnomali969" target="_blank">
-      <img class="icon" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-      Instagram
-    </a>
-
-    <a class="link" href="https://t.me/KaiShin05" target="_blank">
-      <img class="icon" src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
-      Telegram
-    </a>
-
-    <a class="link" href="https://pin.it/6z8GkNcXY" target="_blank">
-      <img class="icon" src="https://ar-hosting.pages.dev/1767415153162.jpg">
-      Pinterest
-    </a>
-
+  <div class="profile">
+    <div class="avatar-ring">
+      <img class="avatar" src="https://ar-hosting.pages.dev/1767528125513.jpg">
+    </div>
+    <div class="profile-text">
+      <h1>Hello, I'm Kai</h1>
+      <p>Welcome to my Web, and this my social profile.</p>
+    </div>
   </div>
+
+  <div class="socials">
+    <a class="social tiktok" href="https://tiktok.com/@kairztzzy">
+      <img src="https://ar-hosting.pages.dev/1767527761847.jpg">
+      <span>Tiktok</span>
+    </a>
+
+    <a class="social instagram" href="https://instagram.com/KairzAnomali969">
+      <img src="https://ar-hosting.pages.dev/1767527886684.jpg">
+      <span>Instagram</span>
+    </a>
+
+    <a class="social telegram" href="https://t.me/KaiShin05">
+      <img src="https://ar-hosting.pages.dev/1767527886042.jpg">
+      <span>Telegram</span>
+    </a>
+
+    <a class="social whatsapp" href="https://whatsapp.com/channel/0029Vb7hXOCEawdxIYY3tp0a">
+      <img src="https://ar-hosting.pages.dev/1767527887404.jpg">
+      <span>Saluran<br>Whatsapp</span>
+    </a>
+
+    <a class="social pinterest" href="https://pin.it/6rOL9V781">
+      <img src="https://ar-hosting.pages.dev/1767527985206.jpg">
+      <span>pinterest</span>
+    </a>
+
+    <!-- THREADS -->
+    <a class="social threads" href="https://www.threads.com/@kairzanomali969">
+      <img src="https://ar-hosting.pages.dev/1767526995144.jpg">
+      <span>threads</span>
+    </a>
+  </div>
+
+  <div class="footer">© 2026 Kai Shin</div>
+</div>
+
+<script>
+function toggleMode(){
+  document.body.classList.toggle("dark");
+  localStorage.setItem(
+    "mode",
+    document.body.classList.contains("dark") ? "dark" : "light"
+  );
+}
+
+if(localStorage.getItem("mode")==="dark"){
+  document.body.classList.add("dark");
+}
+</script>
 
 </body>
 </html>
